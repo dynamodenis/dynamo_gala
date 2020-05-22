@@ -9,11 +9,44 @@ class Image(models.Model):
     location=models.ForeignKey('Location',on_delete=models.CASCADE)
     category=models.ForeignKey('Category',on_delete=models.CASCADE)
     
+    ##Methods
+    #SAVE IMAGE
+    def save_image(self):
+        self.save()
+     
+    #UPDATE IMAGE
+    @classmethod
+    def update_image(cls,name,update):
+        update=Image.objects.filter(image_name=name).update(image_name=update)
+        return update    
+        
+    #DELETE IMAGE    
+    @classmethod    
+    def delete_image(cls,image):
+        Image.objects.filter(image_name=image).delete()
+        
+    
     def __str__(self):
         return self.image_name
     
 class Location(models.Model):
     location=models.CharField(max_length=30)
+    
+    ##Methods
+    #SAVE Location
+    def save_image(self):
+        self.save()
+     
+    #UPDATE location
+    @classmethod
+    def update_location(cls,name,update):
+        update=Location.objects.filter(location=name).update(location=update)
+        return update    
+        
+    #DELETE location    
+    @classmethod    
+    def delete_location(cls,location):
+        Image.objects.filter(location=location).delete()
     
     def __str__(self):
         return self.location
@@ -27,6 +60,22 @@ CATEGORY=[
 ]
 class Category(models.Model):
     category=models.CharField(max_length=15,choices=CATEGORY)
+    
+    ##Methods
+    #SAVE CATEGORY
+    def save_image(self):
+        self.save()
+     
+    #UPDATE CATEGORY
+    @classmethod
+    def update_category(cls,name,update):
+        update=Category.objects.filter(category=name).update(category=update)
+        return update    
+        
+    #DELETE IMAGE    
+    @classmethod    
+    def delete_category(cls,category):
+        Image.objects.filter(category=category).delete()
     
     def __str__(self):
         return self.category
