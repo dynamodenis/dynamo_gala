@@ -32,7 +32,10 @@ class Image(models.Model):
         image=Image.objects.filter(id=id)
         return image
         
-
+    @classmethod
+    def search_image(cls,category):
+        image=cls.objects.get(category=category)
+        return image
         
     
     def __str__(self):

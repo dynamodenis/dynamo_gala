@@ -32,6 +32,11 @@ class TestImage(TestCase):
     def test_get_image_by_id(self):
         image=Image.get_image_by_id(self.image1.id)
         self.assertTrue(len(image)==1)
+        
+    #SEARCH IMAGE BY CATEGORY
+    def test_search_image(self):
+        image=Image.search_image(self.image1.category)
+        self.assertEqual(image.category.category,'Work')
     
 #TEST LOCATION MODEL       
 class TestLocation(TestCase):
