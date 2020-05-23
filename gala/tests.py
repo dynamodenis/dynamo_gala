@@ -38,6 +38,12 @@ class TestImage(TestCase):
         image=Image.search_image(self.image1.category)
         self.assertEqual(image.category.category,'Work')
     
+    #FILTER BY LOCATION
+    def test_filter_by_location(self):
+        image=Image.filter_by_location(self.image1.location)
+        self.assertEqual(image.location.location,'Donholm')
+        
+    
 #TEST LOCATION MODEL       
 class TestLocation(TestCase):
     def setUp(self):

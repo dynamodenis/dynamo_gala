@@ -37,6 +37,10 @@ class Image(models.Model):
         image=cls.objects.get(category=category)
         return image
         
+    @classmethod
+    def filter_by_location(cls,location):
+        image=Image.objects.get(location=location)
+        return image
     
     def __str__(self):
         return self.image_name
