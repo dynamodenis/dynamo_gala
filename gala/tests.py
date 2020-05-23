@@ -6,8 +6,11 @@ from .models import Location,Image,Category
 class TestImage(TestCase):
     def setUp(self):
         self.location1=Location(location='Donholm')
+        self.location1.save_location()
         self.category1=Category(category='Work')
+        self.category1.save_category()
         self.image1=Image(image_name='This is a Test',image_description='test image',location=self.location1,category=self.category1)
+        self.image1.save_image()
      
      #obects saved test   
     def test_save_image(self):
@@ -16,6 +19,13 @@ class TestImage(TestCase):
         self.image1.save_image()
         
     #objects updated
+    def test_updated_image(self):
+        update=Image.update_image(self.image1.image_name,'Updated Test')
+        self.assertEqual(update.image_name,'Updated Test')
+        
+    def test_delete_image(self):
+        Image.delete_image(self.image1.image_name)
+        self.assertTrue(len(Image.objects.all())==0)
     
 #TEST LOCATION MODEL       
 class TestLocation(TestCase):
@@ -30,7 +40,7 @@ class TestLocation(TestCase):
         self.location.save_location()
         
     def test_update_location(self):
-        update=Location.update_location('Donholm','Umoja')
+        update=Location.update_location(self.location.location,'Umoja')
         self.assertEqual(update.location,'Umoja')
         
     def test_delete_location(self):

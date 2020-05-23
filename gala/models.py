@@ -17,7 +17,8 @@ class Image(models.Model):
     #UPDATE IMAGE
     @classmethod
     def update_image(cls,name,update):
-        update=Image.objects.filter(image_name=name).update(image_name=update)
+        Image.objects.filter(image_name=name).update(image_name=update)
+        update=Image.objects.get(image_name=update)
         return update    
         
     #DELETE IMAGE    
