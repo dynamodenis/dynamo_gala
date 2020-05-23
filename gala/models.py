@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Image(models.Model):
-    image=models.ImageField(blank=True)
+    image=models.ImageField(blank=True,upload_to='images/')
     image_name=models.CharField(max_length=20)
     image_description=models.TextField()
     date=models.DateTimeField(auto_now_add=True)

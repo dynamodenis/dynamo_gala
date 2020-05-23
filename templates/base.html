@@ -1,0 +1,32 @@
+{% load bootstrap4%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title%}
+    <title>Gala | {{title}}</title>
+    {% else%}
+    <title>Gala</title>
+    {%endif%}
+    {% block styles%}
+        {% bootstrap_css%}
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-dark bg-dark">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'index' %}">DYNAMO GALA</a>
+          </div>
+        </div>
+      </nav>
+    {%block content%}
+    {%endblock%}
+
+    {% block scripts%}
+        {%bootstrap_javascript%}
+    {%endblock%}
+    
+</body>
+</html>
