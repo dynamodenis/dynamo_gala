@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Image(models.Model):
     image=models.ImageField(blank=True,upload_to='images/')
-    image_name=models.CharField(max_length=20)
+    image_name=models.CharField(max_length=50)
     image_description=models.TextField()
     date=models.DateTimeField(auto_now_add=True)
     location=models.ForeignKey('Location',on_delete=models.CASCADE)
@@ -76,6 +76,8 @@ CATEGORY=[
         ('Hobby','Hobby'),
         ('Family','Family'),
         ('Work','Work'),
+        ('Fashion','Fashion'),
+        ('Sports','Sports'),
 ]
 class Category(models.Model):
     category=models.CharField(max_length=15,choices=CATEGORY)

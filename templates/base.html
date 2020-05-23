@@ -1,4 +1,5 @@
 {% load bootstrap4%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,9 @@
     {%endif%}
     {% block styles%}
         {% bootstrap_css%}
+        <link rel="stylesheet" href="{% static 'css/index.css'%}">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
     {% endblock %}
 </head>
 <body>
