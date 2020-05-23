@@ -22,10 +22,16 @@ class TestImage(TestCase):
     def test_updated_image(self):
         update=Image.update_image(self.image1.image_name,'Updated Test')
         self.assertEqual(update.image_name,'Updated Test')
-        
+     
+     # DELETE IMAGE   
     def test_delete_image(self):
         Image.delete_image(self.image1.image_name)
         self.assertTrue(len(Image.objects.all())==0)
+        
+    #GET IMAGE BY ID
+    def test_get_image_by_id(self):
+        image=Image.get_image_by_id(self.image1.id)
+        self.assertTrue(len(image)==1)
     
 #TEST LOCATION MODEL       
 class TestLocation(TestCase):

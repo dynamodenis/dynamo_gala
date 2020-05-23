@@ -26,6 +26,14 @@ class Image(models.Model):
     def delete_image(cls,image):
         Image.objects.filter(image_name=image).delete()
         
+    #GET IMAGE BY ID
+    @classmethod
+    def get_image_by_id(cls,id):
+        image=Image.objects.filter(id=id)
+        return image
+        
+
+        
     
     def __str__(self):
         return self.image_name
