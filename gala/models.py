@@ -73,13 +73,14 @@ class Category(models.Model):
     #UPDATE CATEGORY
     @classmethod
     def update_category(cls,name,update):
-        update=Category.objects.filter(category=name).update(category=update)
+        Category.objects.filter(category=name).update(category=update)
+        update=Category.objects.get(category=update)
         return update    
         
     #DELETE IMAGE    
     @classmethod    
     def delete_category(cls,category):
-        Image.objects.filter(category=category).delete()
+        Category.objects.filter(category=category).delete()
     
     def __str__(self):
         return self.category

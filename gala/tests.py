@@ -54,7 +54,16 @@ class TestLocation(TestCase):
 class TestCategory(TestCase):
     def setUp(self):
         self.category=Category(category='Hobby')
+        self.category.save()
         
         
     def test_category_saved(self):
         self.category.save_category()
+        
+    def test_update_category(self):
+        update=Category.update_category(self.category.category,'Work')
+        self.assertEqual(update.category,'Work')
+        
+    def test_delete_category(self):
+        Category.delete_category(self.category.category)
+        self.assertTrue(len(Category.objects.all())==0)
