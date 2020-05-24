@@ -13,23 +13,22 @@ Home
 {% block content %}
 <legend></legend>
 <div class="row">
-    <div class="col-lg-12 col-md-12 " style="width: 100%;">
-        <div class="row image_padding">
+    <div class="col-lg-12 col-md-12" >
+        <div class="row">
             <legend class="header">DYNAMO - GALA</legend>
             {%for image in images%}
-            <div class="col-lg-3 col-md-3 mb-2">
+            <div class="col-lg-3 col-md-3 mb-2" style="padding-right: 30px;">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{image.image.url}}" class="card-img-top index_image" alt="IMAGE" title="" style="height: 40vh; width: 100%; background-size: cover;">
+                    <a href=""><img src="{{image.image.url}}" class="card-img-top index_image" alt="IMAGE" title="" style="height:40vh; width: 100%; background-size: cover;" ></a>
                     <div class="card-body">
                       <h5 class="card-title">{{image.image_name}}</h5>
                       <p class="card-text">{{image.image_description}}</p>
-                    </div>
-                  </div>                  
+                      <span class="small">Location:</span><a href="" style="text-decoration: none;"><span class="small">{{image.location.location}}</span></a><span></span><span class="small">Date :</span><a href="" style="text-decoration: none;"><span class="small">{{image.date |  date:"M d,Y , f A"}}</span></a>
+                    </div>  
+                </div>               
             </div>
             {%endfor%}
         </div>
     </div>
 </div>
-
-
 {% endblock%}
