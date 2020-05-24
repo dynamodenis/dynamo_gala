@@ -35,13 +35,13 @@ class TestImage(TestCase):
         
     #SEARCH IMAGE BY CATEGORY
     def test_search_image(self):
-        image=Image.search_image(self.image1.category)
-        self.assertEqual(image.category.category,'Work')
+        image=Image.search_image(self.image1.category.category)
+        self.assertTrue(len(image)>0)
     
     #FILTER BY LOCATION
     def test_filter_by_location(self):
         image=Image.filter_by_location(self.image1.location)
-        self.assertEqual(image.location.location,'Donholm')
+        self.assertTrue(len(image)>0)
         
     
 #TEST LOCATION MODEL       

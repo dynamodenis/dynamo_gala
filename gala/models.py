@@ -24,7 +24,7 @@ class Image(models.Model):
     #DELETE IMAGE    
     @classmethod    
     def delete_image(cls,image):
-        Image.objects.filter(image_name=image).delete()
+        Image.objects.get(image_name=image).delete()
         
     #GET IMAGE BY ID
     @classmethod
@@ -33,13 +33,15 @@ class Image(models.Model):
         return image
         
     @classmethod
-    def search_image(cls,category):
-        image=cls.objects.get(category=category)
+    def search_image(cls,category_image):
+        categories=Category.objects.filter(category=category_image)
+        for category in categories:          
+            image=cls.objects.filter(category=category)
         return image
         
     @classmethod
-    def filter_by_location(cls,location):
-        image=Image.objects.get(location=location)
+    def filter_by_location(cls,id):
+        image=Image.objects.filter(location_id=id)
         return image
     
     def __str__(self):
@@ -64,7 +66,7 @@ class Location(models.Model):
     #DELETE location    
     @classmethod    
     def delete_location(cls,location):
-        deleted=Location.objects.filter(location=location).delete()
+        deleted=Location.objects.get(location=location).delete()
         return deleted
     
     def __str__(self):
@@ -97,7 +99,7 @@ class Category(models.Model):
     #DELETE IMAGE    
     @classmethod    
     def delete_category(cls,category):
-        Category.objects.filter(category=category).delete()
+        Category.objects.get(category=category).delete()
     
     def __str__(self):
         return self.category
