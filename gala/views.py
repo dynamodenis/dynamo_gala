@@ -10,7 +10,7 @@ def index(request):
 def search_category(request):
     if 'category' in request.GET and request.GET['category']:
         search_term=request.GET.get('category')
-        searched_category=Image.objects.filter(category=search_term)
+        searched_category=Image.search_image(search_term)
         print(searched_category)
         message=f'{search_term}'
         

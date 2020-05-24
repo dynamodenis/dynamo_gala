@@ -2,24 +2,23 @@
 {% block content %}
 <legend></legend>
 <div class="row">
-    <div class="col-lg-1 col-md-1" ></div>
-    <div class="col-lg-10 col-md-10">
+    <div class="col-lg-12 col-md-12">
         <div class="row">  
-            <legend class="header">SEARCHES FOR {{message}}</legend>
+            <legend class="header" style="color: white;">SEARCHES FOR {{message}}</legend>
             {% for search in searched%}
-            <div class="col-lg-3 col-md-3 image_padding">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{search.image.url}}" class="card-img-top index_image" alt="IMAGE" title="">
+            <div class="col-lg-3 col-md-3 " >
+                <div class="card" style="width: 20rem; background-color:papayawhip;  margin-left: 20px; " style="padding-right: 30px;">
+                    <img src="{{search.image.url}}" class="card-img-top img-responsive index_image" alt="IMAGE" title="" style="height:40vh; width: 100%;">
                     <div class="card-body">
                       <h5 class="card-title">{{search.image_name}}</h5>
                       <p class="card-text">{{search.image_description}}</p>
+                      <span class="small">Location:</span><a href="" style="text-decoration: none;"><span class="small">{{image.location.location}}</span></a><span></span><span class="small">Date :</span><a href="" style="text-decoration: none;"><span class="small">{{image.date |  date:"M d,Y , f A"}}</span></a>
                     </div>
                   </div>                  
             </div>
             {% endfor %}
         </div>
     </div>
-    <div class="col-lg-1 col-md-1" ></div>
 </div>
 
 
