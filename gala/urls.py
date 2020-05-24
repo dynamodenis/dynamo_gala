@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('search/',views.search_category,name='search_category'),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

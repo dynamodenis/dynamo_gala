@@ -23,6 +23,19 @@
           <div class="navbar-header">
             <a class="navbar-brand" href="{% url 'index' %}">DYNAMO GALA</a>
           </div>
+          <div class="col-sm-4 col-md-4 navbar-right">
+
+            <form class="navbar-form" role="search" action="{% url 'search_category'%}">
+    
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by Category" name="category">
+                <div class="input-group-btn">
+                  <button class="btn btn-secondary" type="submit"><i class="glyphicon glyphicon-search"></i>Search</button>
+                </div>
+              </div>
+    
+            </form>
+          </div> 
         </div>
       </nav>
     {%block content%}
