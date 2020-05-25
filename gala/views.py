@@ -7,6 +7,11 @@ def index(request):
     images=Image.objects.all()
     return render(request,'gala/index.html',{'images':images})
 
+def get_image_by_id(request,image_id):
+    images=Image.get_image_by_id(image_id)
+    return render(request,'gala/index.html', {'images':images})
+     
+
 def search_category(request):
     if 'category' in request.GET and request.GET['category']:
         search_term=request.GET.get('category')

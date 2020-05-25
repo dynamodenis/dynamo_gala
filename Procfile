@@ -1,0 +1,1 @@
+web: gunicorn dynamo_gala.wsgi --log-file -
