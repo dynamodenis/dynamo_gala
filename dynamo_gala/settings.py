@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 import dj_database_url
 from decouple import config,Csv
 
@@ -26,7 +27,7 @@ MODE = config('MODE', default='dev')
 SECRET_KEY=config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEGUG', default=False,cast=bool)
+DEBUG = config('DEBUG', default=False,cast=bool)
 
 ALLOWED_HOSTS = []
 
