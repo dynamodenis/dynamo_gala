@@ -7,7 +7,7 @@ app_name='gala'
 urlpatterns = [
     path('', views.index, name='index'),
     path('search/',views.search_category,name='search_category'),
-    path('<str:location>/',views.filter_by_location,name='filter_by_location')
+    path('<int:location_id>/',views.filter_by_location,name='filter_by_location'),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

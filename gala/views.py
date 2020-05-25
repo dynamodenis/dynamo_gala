@@ -21,10 +21,11 @@ def search_category(request):
         return render(request,'gala/search_category.html',{'message':message})
     
 
-def filter_by_location(request,location):
+def filter_by_location(request,location_id):
     try:
-        location=Image.filter_by_location(location) 
-        message=f'{location}' 
+        get_location_id=Location.objects.get(pk=location_id)
+        location=Image.filter_by_location(get_location_id) 
+        message=f'{get_location_id}' 
         
     except Image.DoesNotExist:
         Http404('Image does not exist')

@@ -43,8 +43,8 @@ class Image(models.Model):
     def filter_by_location(cls,image_location):
         locations=Location.objects.filter(location=image_location)
         for location in locations:
-            image=Image.objects.filter(location=location)
-        return image
+            images=Image.objects.filter(location=location)
+        return images
     
     def __str__(self):
         return self.image_name
