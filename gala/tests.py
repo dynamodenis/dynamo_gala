@@ -40,7 +40,7 @@ class TestImage(TestCase):
     
     #FILTER BY LOCATION
     def test_filter_by_location(self):
-        image=Image.filter_by_location(self.image1.location)
+        image=Image.filter_by_location(self.image1.location.location)
         self.assertTrue(len(image)>0)
         
     

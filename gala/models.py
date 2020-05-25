@@ -40,8 +40,10 @@ class Image(models.Model):
         return image
         
     @classmethod
-    def filter_by_location(cls,id):
-        image=Image.objects.filter(location_id=id)
+    def filter_by_location(cls,image_location):
+        locations=Location.objects.filter(location=image_location)
+        for location in locations:
+            image=Image.objects.filter(location=location)
         return image
     
     def __str__(self):

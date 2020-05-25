@@ -21,9 +21,9 @@ def search_category(request):
         return render(request,'gala/search_category.html',{'message':message})
     
 
-def search_location(request,location):
+def filter_by_location(request,location):
     try:
-        location=Image.objects.filter(location=location) 
+        location=Image.filter_by_location(location) 
         message=f'{location}' 
         
     except Image.DoesNotExist:

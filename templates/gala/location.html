@@ -23,7 +23,7 @@ Home
                     <div class="card-body">
                       <h5 class="card-title">{{location.image_name}}</h5>
                       <p class="card-text">{{location.image_description}}</p>
-                      <span class="small">Location:</span><a href="{% url 'search_location' image.location %}" style="text-decoration: none;"><span class="small">{{location.location}}</span></a><span></span><span class="small">Date :</span><a href="" style="text-decoration: none;"><span class="small">{{location.date |  date:"M d,Y , f A"}}</span></a>
+                      <span class="small">Location:</span><a href="{% url 'gala:filter_by_location' image.location.location %}" style="text-decoration: none;"><span class="small">{{location.location}}</span></a><span></span><span class="small">Date :</span><a href="" style="text-decoration: none;"><span class="small">{{location.date |  date:"M d,Y , f A"}}</span></a>
                     </div>  
                 </div>               
             </div>

@@ -21,11 +21,11 @@
     <nav class="navbar navbar-inverse navbar-dark bg-dark">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'index' %}">DYNAMO GALA</a>
+            <a class="navbar-brand" href="{% url 'gala:index' %}">DYNAMO GALA</a>
           </div>
           <div class="col-sm-4 col-md-4 navbar-right">
 
-            <form class="navbar-form" role="search" action="{% url 'search_category'%}">
+            <form class="navbar-form" role="search" action="{% url 'gala:search_category'%}">
     
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search by Category" name="category">
