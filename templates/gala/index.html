@@ -19,7 +19,7 @@ Home
             {%for image in images%}
             <div class="col-lg-3 col-md-3 mb-2" style="padding-right: 10px;">
                 <div class="card" style="width: 18rem; margin-left: 10px;">
-                    <a href="#"><img data-toggle="modal" data-target="#exampleModalCenter"  src="{{image.image.url}}" class="card-img-top img-responsive index_image" id="image" alt="IMAGE" title="" style="height:40vh; width: 100%; background-size: cover;" ></a>
+                    <a href="{% url 'gala:get_image_id' image.pk %}"><img src="{{image.image.url}}" class="card-img-top img-responsive index_image" id="image" alt="IMAGE" title="" style="height:40vh; width: 100%; background-size: cover;" ></a>
                     <div class="card-body">
                       <h5 class="card-title">{{image.image_name}}</h5>
                       <p class="card-text">{{image.image_description}}</p>

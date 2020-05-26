@@ -30,8 +30,8 @@ class TestImage(TestCase):
         
     #GET IMAGE BY ID
     def test_get_image_by_id(self):
-        image=Image.get_image_by_id(self.image1.id)
-        self.assertTrue(len(image)==1)
+        image=Image.get_image_by_id(self.image1.pk)
+        self.assertEqual(image.image_name,self.image1.image_name)
         
     #SEARCH IMAGE BY CATEGORY
     def test_search_image(self):

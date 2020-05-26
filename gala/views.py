@@ -37,4 +37,13 @@ def filter_by_location(request,location_id):
         
     return render(request,'gala/location.html',{'message':message,'locations':location})
 
+
+def get_image_id(request,image_id):
+    try:
+        image=Image.get_image_by_id(image_id)
+        message=f'{image.image_name}'
+    except Image.DoesNotExist:
+        Http404('Image Does Not Exist')
+    
+    return render(request, 'gala/image.html',{'image':image,'message':message,'title':image.image_name})
     

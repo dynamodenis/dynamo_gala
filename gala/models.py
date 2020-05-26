@@ -29,7 +29,7 @@ class Image(models.Model):
     #GET IMAGE BY ID
     @classmethod
     def get_image_by_id(cls,id):
-        image=Image.objects.filter(id=id)
+        image=Image.objects.get(pk=id)
         return image
         
     @classmethod
