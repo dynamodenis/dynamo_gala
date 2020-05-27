@@ -23,13 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-MODE = config('MODE', default='dev')
+MODE=config('MODE', default='dev')
 SECRET_KEY=config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False,cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -83,10 +83,11 @@ WSGI_APPLICATION = 'dynamo_gala.wsgi.application'
 if config('MODE')=='dev':
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': config('DB_NAME'),
             'USER': config('DB_USER'),
             'PASSWORD':config('DB_PASSWORD'),
+            'HOST':config('DB_HOST')
         }
     }
     
@@ -100,7 +101,7 @@ else:
     
 db_from_env=dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv())
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
